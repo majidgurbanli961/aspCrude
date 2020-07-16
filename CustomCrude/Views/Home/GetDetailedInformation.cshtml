@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+@model CustomCrude.Models.TableData
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetDetailedInformation</title>
+</head>
+<body>
+    <div> 
+        <div class="GetInfo">
+            <div class="GetInfoContent">
+               
+                <h1> @Model.Name</h1>
+                <h3 class="Description"> Description</h3>
+                <span> @Model.Description</span>
+                <h3 class="Price"> Price</h3>
+                <span> @Model.Price</span>
+                <br />
+                @Html.ActionLink("Back to index", "index");
+            </div>
+        </div>
+    </div>
+</body>
+</html>

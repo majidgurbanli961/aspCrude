@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<CustomCrude.Models.TableData>
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div>
+            <form method="get" action="/home/add">
+                <button class="btn btn-primary">Add </button>
+            </form>
+         
+
+
+            
+            <table class="table" style="margin-top: 40px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+
+                        <th scope="col">Delete</th>
+                        <th scope="col">Edit</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        for (int i = 0; i < Model.Count; i++)
+                        {
+                                        <tr>
+                                            <td>@Model[i].Id</td>
+                                            <td>
+                                                
+                                                @Html.ActionLink(Model[i].Name, "GetDetailedInformation", new { name= @Model[i].Name, description= Model[i].Description,
+                                            price = Model[i].Price})
+                                                
+                                                
+                                            
+                                            
+                                            
+                                            </td>
+
+                                            <td>@Model[i].Description</td>
+                                            <td>@Model[i].Price</td>
+                                            <td>
+                                                <form method="get" action="/home/delete">
+                                                    <input type="hidden" name="id" value=@Model[i].Id />
+                                                    <button class="btn btn-primary">Delete </button>
+                                                </form>
+                                            </td>
+                                            <td> 
+                                                 
+                                                  @*  @Html.ActionLink("Edit", "Update", new { id = Model[i].Id, name=Model[i].Name, description= Model[i].Description, price= Convert.ToInt32( Model[i].Price) })*@
+                                                 
+                                                     <form method="get" action="/home/Update">
+                                                         <input type="hidden" name="id" value=@Model[i].Id />
+                                                         <input type="hidden" name="name" value=@Model[i].Name />
+                                                         <input type="hidden" name="description" value=@Model[i].Description />
+                                                         <input type="hidden" name="price" value=@Convert.ToInt32( Model[i].Price) />
+
+
+
+                                                         <button class="btn btn-primary">Update </button>
+                                                     </form>
+                                                 
+                                                   </td>
+
+
+
+                                        </tr>
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+
+    </body>
+</html>

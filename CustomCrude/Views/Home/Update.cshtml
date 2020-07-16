@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Content/Update.css">
+    @model CustomCrude.Models.TableData
+</head>
+<body>
+    <div>
+        <div class="custom-form">
+            <form method="post" action="/home/Update">
+                <div class="form-group">
+
+                    <input type="hidden" value="@Model.Id" name="myid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add name">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" value="@Model.Name" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add name">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Description</label>
+                    <input type="text" value="@Model.Description" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add Description">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Price</label>
+                    <input type="number" value="@Model.Price" name="myprice" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add Number">
+
+                </div>
+                <div class="form-group">
+
+                    <input type="hidden" value="empty" name="empty" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add name">
+
+                </div>
+                <div class="button-div">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+
+                </div>
+            </form>
+            <div class="Cancel-button">
+                <form method="get" action="/Home/Index">
+                    <button class="btn btn-primary">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
